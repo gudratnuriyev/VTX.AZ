@@ -72,8 +72,7 @@ export const DESTINATIONS = [
 ];
 
 export const CONTACT_INFO = {
-  address: "Bakı şəhəri, Azərbaycan",
-  phone: "+994 50 000 00 00",
-  email: "info@vertexfoundation.az",
-
+  address: "Bakı, Ağ Şəhər, Mərkəzi bulvar küçəsi 6. Raffle Business Center",
+  phone: "+994 10 212 0308",
+  email: "office@vtx.az",
 };
