@@ -1,6 +1,7 @@
 import { ArrowUpRight, GraduationCap, Globe, BookOpen, Plane, FileCheck } from "lucide-react";
 
-export const BRAND_NAME = "Marmara Group";
+export const BRAND_NAME = "Vertex Foundation";
+
 
 export const NAVIGATION_LINKS = [
   { name: "Haqqımızda", href: "#about" },
@@ -73,5 +74,6 @@ export const DESTINATIONS = [
 export const CONTACT_INFO = {
   address: "Bakı şəhəri, Azərbaycan",
   phone: "+994 50 000 00 00",
-  email: "info@marmaragroup.az",
+  email: "info@vertexfoundation.az",
+
 };
