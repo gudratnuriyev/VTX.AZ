@@ -8,7 +8,7 @@ export const About: React.FC = () => {
 
           <div className="lg:col-span-4">
             <div className="sticky top-32">
-              <span className="block text-electric-600 font-bold uppercase tracking-widest text-sm mb-4">Haqqımızda</span>
+              <span className="block text-vtx-accent font-bold uppercase tracking-widest text-sm mb-4">Haqqımızda</span>
               <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-neutral-900 leading-tight">
                 Təhsil yolunda etibarlı tərəfdaşınız.
               </h2>
