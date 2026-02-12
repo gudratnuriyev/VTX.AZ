@@ -17,7 +17,7 @@ export const SERVICES_DATA = [
     description: "Dünyanın nüfuzlu universitetlərində bakalavr təhsili almaq şansı.",
     icon: GraduationCap,
     colSpan: "md:col-span-2",
-    bgImage: "https://picsum.photos/800/600?random=1"
+    bgImage: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=1200"
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ export const SERVICES_DATA = [
     description: "Sənədləşmə və viza proseslərində tam dəstək.",
     icon: FileCheck,
     colSpan: "md:col-span-1",
-    bgImage: "https://picsum.photos/400/600?random=2"
+    bgImage: "/viza.jpg"
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ export const SERVICES_DATA = [
     description: "Karyeranızı yüksəltmək üçün magistratura proqramları.",
     icon: BookOpen,
     colSpan: "md:col-span-1",
-    bgImage: "https://picsum.photos/400/400?random=3"
+    bgImage: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ export const SERVICES_DATA = [
     description: "TOEFL, IELTS, SAT, TÖMER hazırlıq kursları.",
     icon: ArrowUpRight,
     colSpan: "md:col-span-1",
-    bgImage: null
+    bgImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: 5,
@@ -49,7 +49,7 @@ export const SERVICES_DATA = [
     description: "Yalnız attestatla universitetə qəbul imkanı.",
     icon: Globe,
     colSpan: "md:col-span-1",
-    bgImage: null
+    bgImage: "/attestat.jpg"
   },
   {
     id: 6,
@@ -57,7 +57,7 @@ export const SERVICES_DATA = [
     description: "İşləyərək təhsil almaq istəyənlər üçün qiyabi proqramlar.",
     icon: Plane,
     colSpan: "md:col-span-3",
-    bgImage: "https://picsum.photos/1200/400?random=4"
+    bgImage: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=1200"
   },
 ];
 

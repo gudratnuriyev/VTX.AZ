@@ -40,29 +40,23 @@ export const Services: React.FC = () => {
               {/* Background Image if available */}
               {service.bgImage && (
                 <div className="absolute inset-0 z-0 transition-transform duration-700 group-hover:scale-110">
-                  <img src={service.bgImage} alt={service.title} className="w-full h-full object-cover opacity-0 group-hover:opacity-10 grayscale transition-opacity duration-500" />
-                  <div className="absolute inset-0 bg-gradient-to-br from-white via-white/80 to-transparent"></div>
+                  <img src={service.bgImage} alt={service.title} className="w-full h-full object-cover opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-white from-0% via-white/80 via-35% to-transparent to-65%"></div>
                 </div>
               )}
 
-              <div className="relative z-10 h-full flex flex-col justify-between">
-                <div className="flex justify-between items-start">
-                  <div className="p-4 bg-neutral-50 rounded-2xl group-hover:bg-vtx-primary group-hover:text-white transition-colors duration-500 shadow-sm">
-                    <service.icon size={28} strokeWidth={1.5} />
-                  </div>
-                  <div className="w-10 h-10 rounded-full bg-neutral-50 flex items-center justify-center group-hover:bg-vtx-accent group-hover:text-white transition-all duration-500">
-                    <ArrowUpRight size={20} className="text-neutral-400 group-hover:text-white transition-colors" />
-                  </div>
+              <div className="relative z-10 h-full flex flex-col justify-end p-6 md:p-8">
+                <div className="mb-4 text-electric-500 group-hover:text-electric-600 transition-colors duration-300 bg-white/50 w-fit p-3 rounded-xl backdrop-blur-sm shadow-sm group-hover:shadow-md">
+                  <service.icon size={32} strokeWidth={1.5} />
                 </div>
 
-                <div>
-                  <h3 className="text-3xl font-bold text-neutral-900 mb-4 tracking-tight group-hover:text-vtx-primary transition-colors duration-300">
-                    {service.title}
-                  </h3>
-                  <p className="text-neutral-500 font-light leading-relaxed group-hover:text-neutral-700 transition-colors">
-                    {service.description}
-                  </p>
-                </div>
+                <h3 className="text-2xl font-bold mb-3 text-neutral-900 group-hover:text-electric-600 transition-colors duration-300 drop-shadow-sm">
+                  {service.title}
+                </h3>
+
+                <p className="text-neutral-600 group-hover:text-neutral-800 transition-colors duration-300 font-medium leading-relaxed max-w-[90%]">
+                  {service.description}
+                </p>
               </div>
             </motion.div>
           ))}

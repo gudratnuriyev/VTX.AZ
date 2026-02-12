@@ -1,17 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { DESTINATIONS } from '../constants';
 
 export const Destinations: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % DESTINATIONS.length);
-  };
+  }, []);
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + DESTINATIONS.length) % DESTINATIONS.length);
+  }, []);
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+    if (isAutoPlaying) {
+      interval = setInterval(nextSlide, 3000);
+    }
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, nextSlide]);
+
+  const handleDragEnd = (_: any, info: { offset: { x: number } }) => {
+    const threshold = 50;
+    if (info.offset.x < -threshold) {
+      nextSlide();
+    } else if (info.offset.x > threshold) {
+      prevSlide();
+    }
   };
 
   return (
@@ -28,29 +45,45 @@ export const Destinations: React.FC = () => {
         </p>
       </div>
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="relative h-[500px] md:h-[600px] w-full rounded-[2rem] overflow-hidden group">
+      <div
+        className="container mx-auto px-6 md:px-12 relative z-10"
+        onMouseEnter={() => setIsAutoPlaying(false)}
+        onMouseLeave={() => setIsAutoPlaying(true)}
+      >
+        <div
+          className="relative h-[500px] md:h-[600px] w-full rounded-[2rem] overflow-hidden group cursor-grab active:cursor-grabbing touch-pan-y focus:outline-none"
+          role="region"
+          aria-roledescription="carousel"
+          tabIndex={0}
+        >
           <AnimatePresence mode="wait">
             <motion.div
               key={currentIndex}
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.2}
+              onDragEnd={handleDragEnd}
               className="absolute inset-0"
             >
-              <img
+              <motion.img
+                initial={{ scale: 1.1 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 1.5, ease: "easeOut" }}
                 src={DESTINATIONS[currentIndex].image}
                 alt={DESTINATIONS[currentIndex].name}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover pointer-events-none"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/40 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/20 to-transparent pointer-events-none"></div>
 
-              <div className="absolute inset-0 p-8 md:p-16 flex flex-col justify-end">
+              <div className="absolute inset-0 p-8 md:p-16 flex flex-col justify-end pointer-events-none">
                 <motion.div
-                  initial={{ y: 20, opacity: 0 }}
+                  initial={{ y: 30, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.3 }}
+                  transition={{ delay: 0.3, duration: 0.6 }}
                 >
                   <div className="h-1 w-24 bg-vtx-accent mb-8"></div>
                   <h3 className="text-5xl md:text-8xl font-black tracking-tighter text-white mb-6">
@@ -64,31 +97,15 @@ export const Destinations: React.FC = () => {
             </motion.div>
           </AnimatePresence>
 
-          {/* Navigation Controls */}
-          <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12 flex space-x-4">
-            <button
-              onClick={prevSlide}
-              className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-white/20 bg-black/20 backdrop-blur-md flex items-center justify-center hover:bg-vtx-primary hover:border-vtx-primary transition-all duration-300 group/btn"
-              aria-label="Previous destination"
-            >
-              <ChevronLeft className="w-6 h-6 md:w-8 md:h-8 group-hover/btn:-translate-x-1 transition-transform" />
-            </button>
-            <button
-              onClick={nextSlide}
-              className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-white/20 bg-black/20 backdrop-blur-md flex items-center justify-center hover:bg-vtx-primary hover:border-vtx-primary transition-all duration-300 group/btn"
-              aria-label="Next destination"
-            >
-              <ChevronRight className="w-6 h-6 md:w-8 md:h-8 group-hover/btn:translate-x-1 transition-transform" />
-            </button>
-          </div>
-
           {/* Slide Indicator */}
-          <div className="absolute top-12 right-12 hidden md:flex space-x-2">
+          <div className="absolute top-12 right-12 flex space-x-2 z-20">
             {DESTINATIONS.map((_, idx) => (
-              <div
+              <button
                 key={idx}
-                className={`h-1.5 transition-all duration-500 rounded-full ${idx === currentIndex ? "w-12 bg-vtx-accent" : "w-6 bg-white/20"
+                onClick={() => setCurrentIndex(idx)}
+                className={`h-1.5 transition-all duration-500 rounded-full ${idx === currentIndex ? "w-12 bg-vtx-accent" : "w-6 bg-white/20 hover:bg-white/40"
                   }`}
+                aria-label={`Go to slide ${idx + 1}`}
               />
             ))}
           </div>
