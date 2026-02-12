@@ -5,6 +5,7 @@ import { Services } from './components/Services';
 import { Destinations } from './components/Destinations';
 import { About } from './components/About';
 import { Footer } from './components/Footer';
+import { WhatsAppButton } from './components/WhatsAppButton';
 
 const App: React.FC = () => {
   return (
@@ -17,6 +18,7 @@ const App: React.FC = () => {
         <About />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };
