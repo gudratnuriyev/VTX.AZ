@@ -1,6 +1,42 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Globe, BookOpen, GraduationCap } from 'lucide-react';
+
+const HERO_IMAGES = [
+  "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop", // Student (Updated)
+  "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=800&auto=format&fit=crop", // Group
+  "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=800&auto=format&fit=crop", // Graduation
+  "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=800&auto=format&fit=crop", // Library (Updated)
+  "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=800&auto=format&fit=crop"  // Classroom
+];
+
+const HeroImageSlider = () => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="relative w-full h-full">
+      <AnimatePresence mode='wait'>
+        <motion.img
+          key={index}
+          src={HERO_IMAGES[index]}
+          alt={`Hero Education ${index + 1}`}
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </AnimatePresence>
+    </div>
+  );
+};
 
 export const Hero: React.FC = () => {
   return (
@@ -85,14 +121,9 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 100, rotate: 5 }}
               animate={{ opacity: 1, y: 0, rotate: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="absolute top-10 left-10 w-[80%] h-[500px] rounded-3xl overflow-hidden shadow-2xl z-10 border-[6px] border-white"
+              className="absolute top-10 left-10 w-[80%] h-[500px] rounded-3xl overflow-hidden shadow-2xl z-10 border-[6px] border-white bg-white"
             >
-              <img
-                src="https://picsum.photos/800/1000?grayscale"
-                alt="Student"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-vtx-primary/80 to-transparent mix-blend-multiply"></div>
+              <HeroImageSlider />
             </motion.div>
 
             {/* Floating Glass Stats Card 1 */}

@@ -17,7 +17,7 @@ export const SERVICES_DATA = [
     description: "Dünyanın nüfuzlu universitetlərində bakalavr təhsili almaq şansı.",
     icon: GraduationCap,
     colSpan: "md:col-span-2",
-    bgImage: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=1200"
+    bgImage: "/xb.jpg"
   },
   {
     id: 2,
