@@ -25,7 +25,7 @@ export const SERVICES_DATA = [
     description: "Sənədləşmə və viza proseslərində tam dəstək.",
     icon: FileCheck,
     colSpan: "md:col-span-1",
-    bgImage: "/viza.jpg"
+    bgImage: "/visa.jpg"
   },
   {
     id: 3,
