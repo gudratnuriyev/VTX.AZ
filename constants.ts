@@ -79,6 +79,6 @@ export const CONTACT_INFO = {
 
 export const SOCIAL_LINKS = [
   { icon: Instagram, href: "https://www.instagram.com/vertexfoundation.az/" },
-  { icon: Facebook, href: "#" },
+  { icon: Facebook, href: "https://www.facebook.com/vertexfoundation.az/" },
   { icon: Linkedin, href: "#" },
 ];
