@@ -62,13 +62,30 @@ export const SERVICES_DATA = [
 ];
 
 export const DESTINATIONS = [
-  "Türkiyə",
-  "Rusiya",
-  "Polşa",
-  "Litva",
-  "Latviya",
-  "Estoniya",
-  "Avropa",
+  {
+    name: "Türkiyə",
+    image: "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?q=80&w=1200", // Istanbul
+  },
+  {
+    name: "Rusiya",
+    image: "https://images.unsplash.com/photo-1512495039889-52a3b799c9bc?q=80&w=1200", // St Basil
+  },
+  {
+    name: "Polşa",
+    image: "https://images.unsplash.com/photo-1519197924294-4ba991a11128?q=80&w=1200", // Warsaw
+  },
+  {
+    name: "Özbəkistan",
+    image: "/uzbekistan_tashkent-3.jpg",
+  },
+  {
+    name: "Çexiya",
+    image: "https://images.unsplash.com/photo-1541849546-216549ae216d?q=80&w=1200", // Prague
+  },
+  {
+    name: "Britaniya",
+    image: "https://images.unsplash.com/photo-1486299267070-83823f5448dd?q=80&w=1200", // London
+  },
 ];
 
 export const CONTACT_INFO = {
