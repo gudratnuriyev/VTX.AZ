@@ -18,7 +18,7 @@ export const Navbar: React.FC = () => {
           {/* Logo */}
           <a href="#" className="flex items-center space-x-3 group">
             <img src="/logo.png" alt={BRAND_NAME} className="h-10 w-auto group-hover:scale-105 transition-transform duration-300" />
-            <span className="text-xl font-bold tracking-tighter text-vtx-primary transition-colors duration-300">
+            <span className="text-base sm:text-xl font-bold tracking-tighter text-vtx-primary transition-colors duration-300">
               {BRAND_NAME.toUpperCase()}
             </span>
           </a>
