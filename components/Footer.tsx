@@ -30,7 +30,7 @@ export const Footer: React.FC = () => {
                   href={href}
                   target={href.startsWith("http") ? "_blank" : undefined}
                   rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white transition-all bg-white/5 backdrop-blur-sm"
+                  className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white transition-all bg-white/5 backdrop-blur-sm shrink-0"
                 >
                   <Icon size={20} />
                 </motion.a>
@@ -55,19 +55,19 @@ export const Footer: React.FC = () => {
             <h4 className="text-sm font-bold uppercase tracking-widest text-vtx-accent mb-8">Əlaqə</h4>
             <ul className="space-y-6">
               <li className="flex items-start group cursor-pointer">
-                <div className="mt-1 mr-4 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-vtx-primary transition-colors">
+                <div className="mt-1 mr-4 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-vtx-primary transition-colors shrink-0">
                   <MapPin className="text-white/70 group-hover:text-white" size={16} />
                 </div>
                 <span className="text-neutral-400 group-hover:text-white transition-colors leading-relaxed">{CONTACT_INFO.address}</span>
               </li>
               <li className="flex items-center group cursor-pointer">
-                <div className="mr-4 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-vtx-primary transition-colors">
+                <div className="mr-4 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-vtx-primary transition-colors shrink-0">
                   <Phone className="text-white/70 group-hover:text-white" size={16} />
                 </div>
                 <a href={`tel:${CONTACT_INFO.phone}`} className="text-neutral-400 group-hover:text-white transition-colors">{CONTACT_INFO.phone}</a>
               </li>
               <li className="flex items-center group cursor-pointer">
-                <div className="mr-4 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-vtx-primary transition-colors">
+                <div className="mr-4 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-vtx-primary transition-colors shrink-0">
                   <Mail className="text-white/70 group-hover:text-white" size={16} />
                 </div>
                 <a href={`mailto:${CONTACT_INFO.email}`} className="text-neutral-400 group-hover:text-white transition-colors">{CONTACT_INFO.email}</a>
