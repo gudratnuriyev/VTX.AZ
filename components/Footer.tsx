@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CONTACT_INFO, BRAND_NAME, NAVIGATION_LINKS } from '../constants';
+import { CONTACT_INFO, BRAND_NAME, NAVIGATION_LINKS, SOCIAL_LINKS } from '../constants';
 import { Instagram, Facebook, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 
 export const Footer: React.FC = () => {
@@ -23,11 +23,13 @@ export const Footer: React.FC = () => {
               Gələcəyinizi bu gündən planlaşdırın. Bizimlə arzularınıza çatmaq daha asandır.
             </p>
             <div className="flex space-x-4">
-              {[Instagram, Facebook, Linkedin].map((Icon, idx) => (
+              {SOCIAL_LINKS.map(({ icon: Icon, href }, idx) => (
                 <motion.a
                   key={idx}
                   whileHover={{ scale: 1.1, backgroundColor: "#1D70B8", borderColor: "#1D70B8" }}
-                  href="#"
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white transition-all bg-white/5 backdrop-blur-sm"
                 >
                   <Icon size={20} />

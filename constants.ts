@@ -1,4 +1,4 @@
-import { ArrowUpRight, GraduationCap, Globe, BookOpen, Plane, FileCheck } from "lucide-react";
+import { ArrowUpRight, GraduationCap, Globe, BookOpen, Plane, FileCheck, Instagram, Facebook, Linkedin } from "lucide-react";
 
 export const BRAND_NAME = "Vertex Foundation";
 
@@ -76,3 +76,9 @@ export const CONTACT_INFO = {
   phone: "+994 10 212 0308",
   email: "office@vtx.az",
 };
+
+export const SOCIAL_LINKS = [
+  { icon: Instagram, href: "https://www.instagram.com/vertexfoundation.az/" },
+  { icon: Facebook, href: "#" },
+  { icon: Linkedin, href: "#" },
+];
