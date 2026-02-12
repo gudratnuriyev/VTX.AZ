@@ -1,5 +1,8 @@
 {
   "name": "Vertex Foundation - Education Abroad",
   "description": "A modern, minimalist landing page for Vertex Foundation, an education abroad agency, featuring a Swiss Design aesthetic and Bento-grid layout.",
-  "requestFramePermissions": []
+  "requestFramePermissions": [
+    "allow-popups",
+    "allow-popups-to-escape-sandbox"
+  ]
 }
